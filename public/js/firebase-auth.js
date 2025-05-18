@@ -1,4 +1,4 @@
-// public/js/firebase-auth.js
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
 import {
     getAuth,
@@ -6,7 +6,7 @@ import {
     createUserWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
 
-// ✅ Replace with your Firebase project config
+
 const firebaseConfig = {
   apiKey: "AIzaSyABnIftBwih3DbrVhrnpMMnMw1pqlB0_So",
   authDomain: "customer-management-d9ad8.firebaseapp.com",
@@ -20,7 +20,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// 🔁 Form Switching Logic
+
 window.toggleForms = function () {
     const loginForm = document.getElementById('loginForm');
     const registerForm = document.getElementById('registerForm');
@@ -55,7 +55,7 @@ document.getElementById('registerForm').addEventListener('submit', function (e) 
 
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCred) => {
-            // Store to MySQL
+           
             fetch("php/save_user.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

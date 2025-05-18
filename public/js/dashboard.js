@@ -8,12 +8,11 @@ function toggleCustomerForm(show = null) {
     } else if (show === false) {
         formContainer.style.display = 'none';
     } else {
-        // Toggle mode
         formContainer.style.display = formContainer.style.display === 'none' ? 'block' : 'none';
     }
 }
 
-// Helper: Show feedback messages
+//Show feedback messages
 function showMessage(text, type = 'success') {
     let msgBox = document.getElementById('dashboardMsg');
     if (!msgBox) {
@@ -107,11 +106,10 @@ function editCustomer(customer) {
 
     toggleCustomerForm(true);
 
-    // Scroll to form
     document.getElementById('customerFormContainer').scrollIntoView({ behavior: 'smooth' });
 }
 
-// Load users (from MySQL mirror of Firebase)
+// Load users 
 function loadUsers() {
     fetch('../php/users.php')
         .then(res => res.json())
@@ -164,5 +162,5 @@ document.getElementById('contactForm').addEventListener('submit', e => {
 window.addEventListener('DOMContentLoaded', () => {
     loadCustomers();
     loadUsers();
-    toggleCustomerForm(false); // hide form on load
+    toggleCustomerForm(false); 
 });
